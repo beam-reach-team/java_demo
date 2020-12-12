@@ -48,11 +48,11 @@
         <version.jboss.spec.javaee.6.0>3.0.2.Final</version.jboss.spec.javaee.6.0>
 
         <!-- other plugin versions -->
-        <version.war.plugin>2.1.2</version.war.plugin>
+        <version.war.plugin>3.3.1</version.war.plugin>
 
         <!-- maven-compiler-plugin -->
-        <maven.compiler.target>1.6</maven.compiler.target>
-        <maven.compiler.source>1.6</maven.compiler.source>
+        <maven.compiler.target>3.8.1</maven.compiler.target>
+        <maven.compiler.source>3.8.1</maven.compiler.source>
     </properties>
 
     <dependencyManagement>
