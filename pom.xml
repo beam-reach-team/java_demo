@@ -45,7 +45,7 @@
 
         <version.jboss.maven.plugin>7.4.Final</version.jboss.maven.plugin>
 
-        <version.jboss.spec.javaee.6.0>3.0.2.Final</version.jboss.spec.javaee.6.0>
+        <version.jboss.spec.javaee.8.0>1.0.4.Final</version.jboss.spec.javaee.8.0>
 
         <!-- other plugin versions -->
         <version.war.plugin>3.3.1</version.war.plugin>
@@ -66,8 +66,8 @@
                 use this stack with any version of JBoss EAP that implements Java EE 6. -->
             <dependency>
                 <groupId>org.jboss.spec</groupId>
-                <artifactId>jboss-javaee-6.0</artifactId>
-                <version>${version.jboss.spec.javaee.6.0}</version>
+                <artifactId>jboss-javaee-8.0</artifactId>
+                <version>${version.jboss.spec.javaee.8.0}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
