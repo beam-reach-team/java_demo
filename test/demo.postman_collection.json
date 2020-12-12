@@ -1,0 +1,53 @@
+{
+	"info": {
+		"_postman_id": "d2a2f81e-95c2-47c5-b6b9-0ad29b2ac099",
+		"name": "demo",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "hello world",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f9c67f32-b6a2-4909-bbdf-d8ea34232191",
+						"exec": [
+							"pm.test(\"Status test\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Return Code\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    var x = jsonData[\"result\"]\r",
+							"    pm.expect(x).to.equal(\"Hello World!\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://192.168.153.128:8081/jboss-helloworld/HelloWorld",
+					"protocol": "http",
+					"host": [
+						"192",
+						"168",
+						"153",
+						"128"
+					],
+					"port": "8081",
+					"path": [
+						"jboss-helloworld",
+						"HelloWorld"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
