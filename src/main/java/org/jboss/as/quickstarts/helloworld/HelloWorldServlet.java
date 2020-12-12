@@ -26,6 +26,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.json.simple.JSONObject;
+import org.json.simple.JSONValue;
+
 /**
  * <p>
  * A simple servlet taking advantage of features added in 3.0.
@@ -52,11 +55,13 @@ public class HelloWorldServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        resp.setCharacterEncoding("utf8");
         resp.setContentType("application/json");
-        resp.setCharacterEncoding("UTF-8");
-        PrintWriter writer = resp.getWriter();
-        writer.print("{result:" + helloService.createHelloMessage("World") + "}");
-        writer.close();
+        PrintWriter out = resp.getWriter();
+        JSONObject obj = new JSONObject();
+        obj.put("result", helloService.createHelloMessage("World"));
+        out.print(obj.toString());
+        out.close();
     }
 
 }
