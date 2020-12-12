@@ -52,11 +52,10 @@ public class HelloWorldServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        resp.setContentType("text/html");
+        resp.setContentType("application/json");
+        resp.setCharacterEncoding("UTF-8");
         PrintWriter writer = resp.getWriter();
-        writer.println(PAGE_HEADER);
-        writer.println("<h1>" + helloService.createHelloMessage("World") + "</h1>");
-        writer.println(PAGE_FOOTER);
+        writer.print("{result:" + helloService.createHelloMessage("World") + "}");
         writer.close();
     }
 
