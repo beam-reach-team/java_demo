@@ -43,15 +43,8 @@ import org.json.simple.JSONValue;
  * 
  */
 @SuppressWarnings("serial")
-@WebServlet("/HelloWorld")
+@WebServlet("/get_RsaSecret")
 public class HelloWorldServlet extends HttpServlet {
-
-    static String PAGE_HEADER = "<html><head><title>helloworld</title></head><body>";
-
-    static String PAGE_FOOTER = "</body></html>";
-
-    @Inject
-    HelloService helloService;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -59,7 +52,9 @@ public class HelloWorldServlet extends HttpServlet {
         resp.setContentType("application/json");
         PrintWriter out = resp.getWriter();
         JSONObject obj = new JSONObject();
-        obj.put("result", helloService.createHelloMessage("World"));
+        obj.put("ReturnCode", "0000");
+        obj.put("ReturnMsg", "Loading RSA public key loaded.");
+        obj.put("RsaSecret", "30820122300D06092A864886F70D01010105000382010F003082010A0282010100C2DC919F7A10776F6A566BBA64E264AA55E14EDFE97990F08441EF8B96F688878BEC11E3E3AE6BE986B248DA64A85B70FEFBC38387FEFFB970BDD73C8A32CA699436EC4797FD727DA8DA2DED25D36C6225001F5DAF56599693D3B708EA1AB12C850A4B2780F65F926CB5DF0F1665BC2A20050CF8337156B0F66D85319987D89365E711ED706235AEBE5A7D859F8992F83839A71383452F54D7315DF242DCCEFDBE97A5D417D052066A2B04F695B7160F127A90C649E39C580CC4CE54E26A158A94590A9128FAA84E0B42F1BDB77F7B564523849851B585DCCFCC12270915175EAD0EE92573D7C7CA37B911C9ACF7A24F066DC6F2CFA25DAF981311CBECF16EDF0203010001");
         out.print(obj.toString());
         out.close();
     }
