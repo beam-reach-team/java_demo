@@ -6,7 +6,7 @@
 	},
 	"item": [
 		{
-			"name": "hello world",
+			"name": "Load RSA Key",
 			"event": [
 				{
 					"listen": "test",
@@ -19,8 +19,14 @@
 							"\r",
 							"pm.test(\"Return Code\", function () {\r",
 							"    var jsonData = pm.response.json();\r",
-							"    var x = jsonData[\"result\"]\r",
-							"    pm.expect(x).to.equal(\"Hello World!\");\r",
+							"    var x = jsonData[\"ReturnCode\"];\r",
+							"    pm.expect(x).to.equal(\"0000\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"ReturnMsg\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    var x = jsonData[\"ReturnMsg\"];\r",
+							"    pm.expect(x).to.equal(\"Loading RSA public key loaded.\");\r",
 							"});"
 						],
 						"type": "text/javascript"
@@ -31,7 +37,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://192.168.153.128:8081/jboss-helloworld/HelloWorld",
+					"raw": "http://192.168.153.128:8081/jboss-helloworld/get_RsaSecret",
 					"protocol": "http",
 					"host": [
 						"192",
@@ -42,7 +48,7 @@
 					"port": "8081",
 					"path": [
 						"jboss-helloworld",
-						"HelloWorld"
+						"get_RsaSecret"
 					]
 				}
 			},
